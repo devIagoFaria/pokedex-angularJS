@@ -1,0 +1,79 @@
+<main class="container">
+
+    <app-poker-header></app-poker-header>
+
+    <ng-template [ngIf]="isLoading">
+
+
+
+        <div style=" display: flex; justify-content: space-around; 
+            flex-direction: row-reverse; transform: translateY(40px);">
+
+            <section>
+                <h2 style="font-size: 60px; transform: translateY(-20px); 
+                    color: rgba(255, 255, 255, 0.2);">{{pokemon[1].names[0].name}}</h2>
+                <h1 style="color: white; text-align: right; 
+                    transform: translateY(-40px); font-size: 40px; "> {{pokemon[0].name}}</h1>
+            </section>
+
+            <div style="text-align: center; transform: scale(1.2);">
+
+                <img [src]="pokemon[0].sprites.other.dream_world.front_default" width="100px" [alt]="pokemon[0].name">
+
+            </div>
+
+
+        </div>
+
+
+
+
+        <div style="background-color: white; padding: 30px; border-radius: 50px; padding-top: 100px;">
+
+
+            <section>
+
+
+
+                <article>
+                    <section>
+                        <h3 style="text-decoration: underline; font-size: 25px; font-weight: bold;
+                         color: rgb(255, 112, 145); font-style: italic; ">Estatísticas </h3>
+                        <br>
+                        <ol>
+                            <li *ngFor="let item of pokemon[0].stats"
+                                style="display: flex; justify-content: space-between; width: 100%; margin-bottom: 10px;">
+                                {{item.stat.name}}
+                                <strong> {{item.base_stat}} </strong>
+
+                            </li>
+
+
+
+                        </ol>
+                    </section>
+
+                    <br> <br>
+                    <a [routerLink]="['']" style="color: white; font-size: 20px; 
+                    text-decoration: none; text-align: center ">
+
+                        <div style="background-color: rgb(255, 112, 145); padding: 10px; border-radius: 10px;">
+                            Voltar
+                        </div>
+
+                    </a>
+
+
+                </article>
+            </section>
+
+        </div>
+    </ng-template>
+
+    <ng-template [ngIf]="itsError">
+        <img src="assets/error.png" alt="">
+    </ng-template>
+
+
+
+</main>

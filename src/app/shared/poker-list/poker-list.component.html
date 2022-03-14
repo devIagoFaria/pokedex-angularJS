@@ -1,0 +1,26 @@
+<app-poker-search style="margin: 10px;" (emitSearch)="getSearch($event)" ></app-poker-search>
+
+<div class="allListPokemon">
+    <ng-template ngFor let-pokemon [ngForOf]="getAllPokemons">
+
+        <a *ngIf="pokemon.status" [routerLink]="['details', pokemon.status.id]">
+            <section>
+                <h2>{{ pokemon.name }}</h2>
+
+                <ul>
+                    <li *ngFor=" let value of pokemon.status.types">{{value.type.name}}</li>
+                </ul>
+            </section>
+
+            <section class="centerImage">
+                <img [src]="pokemon.status.sprites.other.dream_world.front_default" [alt]="pokemon.name" width="80px">
+            </section>
+
+        </a>
+
+    </ng-template>
+
+    <ng-template [ngIf]="itsError">
+        <img src="assets/error.png" alt="">
+    </ng-template>
+</div>
